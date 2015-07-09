@@ -22,6 +22,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 import com.steps.lostfound.R;
+import com.steps.lostfound.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

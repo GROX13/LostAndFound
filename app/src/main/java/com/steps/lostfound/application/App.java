@@ -1,4 +1,4 @@
-package com.steps.lostfound.activities;
+package com.steps.lostfound.application;
 
 import android.app.Application;
 

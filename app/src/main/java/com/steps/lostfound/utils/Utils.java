@@ -1,4 +1,4 @@
-package com.steps.lostfound.activities;
+package com.steps.lostfound.utils;
 
 import android.text.TextUtils;
 

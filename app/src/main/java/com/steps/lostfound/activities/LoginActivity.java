@@ -23,10 +23,13 @@ import android.widget.EditText;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 import com.steps.lostfound.R;
+import com.steps.lostfound.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -79,7 +82,31 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 startActivity(i);
             }
         });
+        Button facebookSignUp = (Button) findViewById(R.id.facebook_login_button);
+        facebookSignUp.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Collection<String> permissions = new ArrayList<>();
+                ParseFacebookUtils.logInWithReadPermissionsInBackground(LoginActivity.this, permissions, new LogInCallback() {
+                    @Override
+                    public void done(ParseUser user, ParseException err) {
+                        if (user == null) {
+                            Log.d("Lost & Found", "Uh oh. The user cancelled the Facebook login.");
+                        } else if (user.isNew()) {
+                            Log.d("Lost & Found", "User signed up and logged in through Facebook!");
+                        } else {
+                            Log.d("Lost & Found", "User logged in through Facebook!");
+                        }
+                    }
+                });
+            }
+        });
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ParseFacebookUtils.onActivityResult(requestCode, resultCode, data);
     }
 
     private void populateAutoComplete() {
