@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="BaseTheme"/>
+
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/ThemePrimary</item>
+        <item name="colorPrimaryDark">@color/ThemePrimaryDark</item>
+        <item name="colorAccent">@color/ThemeAccent</item>
+
+    </style>
+
+    <style name="AppTheme.NavigationDrawer" parent="AppTheme"/>
+</resources>

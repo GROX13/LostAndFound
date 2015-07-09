@@ -1,0 +1,43 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.steps.lostfound.activities.MainActivity">
+
+    <group
+        android:id="@+id/menu_group_application_specs"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/action_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/action_matched_items"
+            android:icon="@drawable/ic_matched_items"
+            android:title="@string/matched_items" />
+
+        <item
+            android:id="@+id/action_lost_items"
+            android:icon="@drawable/ic_help"
+            android:title="@string/lost_items" />
+
+        <item
+            android:id="@+id/action_found_items"
+            android:icon="@drawable/ic_found_items"
+            android:title="@string/found_items" />
+
+        <item
+            android:id="@+id/history"
+            android:icon="@drawable/ic_history"
+            android:title="@string/resolved_items" />
+
+    </group>
+    <group
+        android:id="@+id/menu_group_other"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/action_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/action_settings" />
+    </group>
+</menu>

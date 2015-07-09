@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Lost &amp; Found</string>
+    <string name="login_success">Successfully logged in</string>
+    <string name="error">Error occurred</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_sign_up">Sign Up</string>
+    <string name="error_invalid_re_password">Passwords doesn\'t match</string>
+    <string name="sign_up_success">Registered successfully</string>
+    <string name="prompt_password_re">Repeat password</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- Important shit do not touch! P.S Seriously, do not touch! -->
+    <string name="facebook_app_id">714851881976558</string>
+
+    <string name="action_sign_up_with_facebook">Log in with Facebook</string>
+    <string name="home">Home</string>
+    <string name="found_items">Found Items</string>
+    <string name="lost_items">Lost Items</string>
+    <string name="resolved_items">Resolved items</string>
+    <string name="matched_items">Matched items</string>
+    <string name="openDrawer">Open Drawer</string>
+    <string name="closeDrawer">Close Drawer</string>
+    <string name="background_image">Background image</string>
+
+</resources>
