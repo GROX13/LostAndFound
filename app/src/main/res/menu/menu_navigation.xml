@@ -35,9 +35,11 @@
     <group
         android:id="@+id/menu_group_other"
         android:checkableBehavior="single">
+
         <item
             android:id="@+id/action_settings"
             android:icon="@drawable/ic_settings"
             android:title="@string/action_settings" />
+
     </group>
 </menu>

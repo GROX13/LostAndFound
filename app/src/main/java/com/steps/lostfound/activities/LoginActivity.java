@@ -190,7 +190,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
-
     /**
      * Shows the progress UI and hides the login form.
      */
