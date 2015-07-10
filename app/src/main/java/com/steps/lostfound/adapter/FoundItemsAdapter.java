@@ -38,9 +38,10 @@ public class FoundItemsAdapter extends BaseAdapter {
     }
 
     @Override
+    @SuppressLint("ViewHolder")
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = activity.getLayoutInflater();
-        @SuppressLint("ViewHolder") View row = inflater.inflate(R.layout.element_found_item, parent, false);
+        View row = inflater.inflate(R.layout.element_found_item, parent, false);
         TextView name = (TextView) row.findViewById(R.id.found_element_label);
         name.setText((String) getItem(position));
         return row;

@@ -29,18 +29,22 @@ public class AdapterFactory {
                 adapter = new MatchedItemsAdapter(activity);
                 App.getDataObservable().registerAdapter(adapter);
                 adapters.put(id, adapter);
+                break;
             case R.id.action_lost_items:
                 adapter = new LostItemsAdapter(activity);
                 App.getDataObservable().registerAdapter(adapter);
                 adapters.put(id, adapter);
+                break;
             case R.id.action_found_items:
                 adapter = new FoundItemsAdapter(activity);
                 App.getDataObservable().registerAdapter(adapter);
                 adapters.put(id, adapter);
+                break;
             case R.id.history:
                 adapter = new ResolvedItemsAdapter(activity);
                 App.getDataObservable().registerAdapter(adapter);
                 adapters.put(id, adapter);
+                break;
         }
         return adapter;
     }
