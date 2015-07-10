@@ -1,21 +1,18 @@
 package com.steps.lostfound.activities;
 
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.steps.lostfound.R;
-import com.steps.lostfound.adapter.MatchedItemsAdapter;
+import com.steps.lostfound.model.AdapterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,23 +40,24 @@ public class MainActivity extends AppCompatActivity {
                         // TODO: Implement!
                         return true;
                     case R.id.action_matched_items:
-                        contentFrame.removeAllViews();
-                        ListView listView = (ListView) getLayoutInflater()
-                                .inflate(R.layout.list_matched_items, null);
-                        listView.setAdapter(new MatchedItemsAdapter(MainActivity.this));
-                        contentFrame.addView(listView);
+                        setListViewUp((ListView)
+                                getLayoutInflater().inflate(R.layout.list_matched_items, null),
+                                contentFrame, menuItem.getItemId());
                         return true;
                     case R.id.action_lost_items:
-                        contentFrame.removeAllViews();
-                        // TODO: Implement!
+                        setListViewUp((ListView)
+                                getLayoutInflater().inflate(R.layout.list_lost_items, null),
+                                contentFrame, menuItem.getItemId());
                         return true;
                     case R.id.action_found_items:
-                        contentFrame.removeAllViews();
-                        // TODO: Implement!
+                        setListViewUp((ListView)
+                                getLayoutInflater().inflate(R.layout.list_found_items, null),
+                                contentFrame, menuItem.getItemId());
                         return true;
                     case R.id.history:
-                        contentFrame.removeAllViews();
-                        // TODO: Implement!
+                        setListViewUp((ListView)
+                                getLayoutInflater().inflate(R.layout.list_resolved_items, null),
+                                contentFrame, menuItem.getItemId());
                         return true;
                     case R.id.action_settings:
                         // TODO: Implement!
@@ -69,20 +67,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
+        ActionBarDrawerToggle actionBarDrawerToggle =
+                new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
+                        R.string.openDrawer, R.string.closeDrawer) {
+                    @Override
+                    public void onDrawerClosed(View drawerView) {
+                        super.onDrawerClosed(drawerView);
+                    }
 
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-            }
-        };
+                    @Override
+                    public void onDrawerOpened(View drawerView) {
+                        super.onDrawerOpened(drawerView);
+                    }
+                };
 
         mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
+    }
+
+    private void setListViewUp(ListView listView, LinearLayout contentFrame, int itemId) {
+        contentFrame.removeAllViews();
+        listView.setAdapter(AdapterFactory
+                .getAdapterFor(MainActivity.this, itemId));
+        this.contentFrame.addView(listView);
     }
 
 
