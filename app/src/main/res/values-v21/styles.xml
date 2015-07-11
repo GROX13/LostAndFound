@@ -1,8 +1,8 @@
 <resources>
 
     <style name="AppTheme" parent="BaseTheme">
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:colorControlHighlight">@color/nav_transparent</item> 
-        <item name="android:windowSharedElementsUseOverlay">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:colorControlHighlight">@color/statusbar_transparent</item> 
+        <item name="android:windowSharedElementsUseOverlay">true</item>
     </style>
 </resources>

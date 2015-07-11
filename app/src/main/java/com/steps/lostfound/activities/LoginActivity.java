@@ -83,6 +83,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
         Button facebookSignUp = (Button) findViewById(R.id.facebook_login_button);
+
+        final Intent redirectToMain = new Intent(LoginActivity.this, MainActivity.class);
+        // This flags just make us to not return on login screen with back press.
+        redirectToMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
         facebookSignUp.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,11 +102,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             startActivityForResult(
                                     new Intent(LoginActivity.this, MainActivity.class),
                                     DispatcherActivity.TARGET_REQUEST);
+                            startActivity(redirectToMain);
                         } else {
                             Log.d("Lost & Found", "User logged in through Facebook!");
-                            startActivityForResult(
-                                    new Intent(LoginActivity.this, MainActivity.class),
-                                    DispatcherActivity.TARGET_REQUEST);
+                            startActivity(redirectToMain);
                         }
                     }
                 });

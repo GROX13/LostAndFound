@@ -1,6 +1,11 @@
 package com.steps.lostfound.application;
 
 import android.app.Application;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.util.Base64;
+import android.util.Log;
 import android.widget.BaseAdapter;
 
 import com.facebook.FacebookSdk;
@@ -8,6 +13,8 @@ import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
 import com.steps.lostfound.model.Observable;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
