@@ -13,6 +13,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -35,6 +36,8 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
     private EditText mPasswordReView;
+    private EditText mFullNameView;
+    private EditText mPhoneNumberView;
     private View focusView;
     private View mSignUpScreen;
 
@@ -43,9 +46,9 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if(getSupportActionBar() != null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
         }
@@ -55,6 +58,8 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
         mSignUpScreen = findViewById(R.id.sign_up_screen);
         mSignUpFormView = findViewById(R.id.sign_up_form);
         mProgressView = findViewById(R.id.sign_up_progress);
+        mFullNameView = (EditText) findViewById(R.id.full_name);
+        mPhoneNumberView = (EditText) findViewById(R.id.phone_number);
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordReView = (EditText) findViewById(R.id.password_re);
@@ -78,6 +83,13 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
             user.setUsername(email);
             user.setPassword(password);
             user.setEmail(email);
+
+            String fullName = mFullNameView.getText().toString();
+            if(!TextUtils.isEmpty(fullName))
+                user.put("name",fullName);
+            String phoneNumber = mPhoneNumberView.getText().toString();
+            if(!TextUtils.isEmpty(phoneNumber))
+                user.put("phone",phoneNumber);
 
             user.signUpInBackground(new SignUpCallback() {
                 public void done(ParseException e) {
@@ -205,5 +217,14 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mEmailView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return false;
     }
 }

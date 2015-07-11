@@ -10,7 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.parse.Parse;
+import com.parse.ParseUser;
 import com.steps.lostfound.R;
 import com.steps.lostfound.model.AdapterFactory;
 
@@ -29,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         contentFrame = (LinearLayout) findViewById(R.id.display_content);
+
+        ParseUser user = ParseUser.getCurrentUser();
+        TextView userEmail = (TextView)findViewById(R.id.user_email);
+        TextView userName = (TextView)findViewById(R.id.user_name);
+        userEmail.setText(user.getEmail());
+        userName.setText((String)user.get("name"));
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

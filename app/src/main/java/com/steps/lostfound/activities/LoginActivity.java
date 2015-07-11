@@ -20,7 +20,11 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
@@ -28,8 +32,10 @@ import com.parse.ParseUser;
 import com.steps.lostfound.R;
 import com.steps.lostfound.utils.Utils;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -74,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
         mLoginScreen = findViewById(R.id.login_screen);
-        Button signUpButton = (Button) findViewById(R.id.sign_up);
+        TextView signUpButton = (TextView) findViewById(R.id.sign_up);
         signUpButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,18 +97,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         facebookSignUp.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Collection<String> permissions = new ArrayList<>();
+                showProgress(true);
+                List<String> permissions = Arrays.asList("public_profile", "email");
                 ParseFacebookUtils.logInWithReadPermissionsInBackground(LoginActivity.this, permissions, new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException err) {
                         if (user == null) {
+                            showProgress(false);
                             Log.d("Lost & Found", "Uh oh. The user cancelled the Facebook login.");
                         } else if (user.isNew()) {
                             Log.d("Lost & Found", "User signed up and logged in through Facebook!");
-                            startActivityForResult(
-                                    new Intent(LoginActivity.this, MainActivity.class),
-                                    DispatcherActivity.TARGET_REQUEST);
-                            startActivity(redirectToMain);
+                            fetchInfoAndRedirect();
                         } else {
                             Log.d("Lost & Found", "User logged in through Facebook!");
                             startActivity(redirectToMain);
@@ -172,10 +177,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             ParseUser.logInInBackground(email, password, new LogInCallback() {
                 @Override
                 public void done(ParseUser parseUser, ParseException e) {
-                    showProgress(false);
                     if (e == null) {
                         Snackbar.make(mLoginScreen, R.string.login_success, Snackbar.LENGTH_LONG).show();
                     } else {
+                        showProgress(false);
                         switch (e.getCode()) {
                             case ParseException.CONNECTION_FAILED:
                                 Snackbar.make(mLoginScreen, R.string.login_success, Snackbar.LENGTH_LONG).show();
@@ -193,14 +198,35 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             default:
                                 Snackbar.make(mLoginScreen, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
                                 e.printStackTrace();
-                                startActivityForResult(
-                                        new Intent(LoginActivity.this, MainActivity.class),
-                                        DispatcherActivity.TARGET_REQUEST);
                         }
                     }
                 }
             });
         }
+    }
+
+    public void fetchInfoAndRedirect() {
+        GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+            @Override
+            public void onCompleted(JSONObject jsonObject, GraphResponse graphResponse) {
+                String email = null;
+                String name = null;
+                if(jsonObject != null){
+                    try {
+                        email = jsonObject.getString("email");
+                        Log.i(TAG, jsonObject.toString());
+                        name = jsonObject.getString("name");
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+                // This activity request user to finish registration. To input all necessary information.
+                Intent i = new Intent(LoginActivity.this, FinishRegistration.class);
+                i.putExtra("email",email);
+                i.putExtra("name",name);
+                startActivity(i);
+            }
+        }).executeAsync();
     }
 
     /**

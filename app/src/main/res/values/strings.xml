@@ -2,11 +2,10 @@
     <string name="app_name">Lost &amp; Found</string>
     <string name="login_success">Successfully logged in</string>
     <string name="error">Error occurred</string>
-    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_sign_up">Sign Up</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="action_sign_up">Sign Up</string>
     <string name="error_invalid_re_password">Passwords doesn\'t match</string>
     <string name="sign_up_success">Registered successfully</string>
     <string name="prompt_password_re">Repeat password</string>
@@ -29,5 +28,10 @@
     <string name="first_name">First name</string>
     <string name="last_name">last_name</string>
     <string name="full_name">Full Name</string>
+    <string name="action_sign_up"><![CDATA[Sign Up for Lost&Found]]></string>
+    <string name="sign_up">Sign Up</string>
+    <string name="title_activity_finish_registration">Finish your registration</string>
+    <string name="finish_registration">Finish Registration</string>
+
 
 </resources>
