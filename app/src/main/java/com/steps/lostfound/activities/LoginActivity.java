@@ -94,8 +94,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             Log.d("Lost & Found", "Uh oh. The user cancelled the Facebook login.");
                         } else if (user.isNew()) {
                             Log.d("Lost & Found", "User signed up and logged in through Facebook!");
+                            startActivityForResult(
+                                    new Intent(LoginActivity.this, MainActivity.class),
+                                    DispatcherActivity.TARGET_REQUEST);
                         } else {
                             Log.d("Lost & Found", "User logged in through Facebook!");
+                            startActivityForResult(
+                                    new Intent(LoginActivity.this, MainActivity.class),
+                                    DispatcherActivity.TARGET_REQUEST);
                         }
                     }
                 });
@@ -183,6 +189,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             default:
                                 Snackbar.make(mLoginScreen, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
                                 e.printStackTrace();
+                                startActivityForResult(
+                                        new Intent(LoginActivity.this, MainActivity.class),
+                                        DispatcherActivity.TARGET_REQUEST);
                         }
                     }
                 }
@@ -252,7 +261,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
-        //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
+        // Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<>(LoginActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);

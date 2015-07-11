@@ -16,8 +16,8 @@ import com.parse.ParseUser;
  */
 public class DispatcherActivity extends Activity{
 
-    int LOGIN_REQUEST = 0;
-    int TARGET_REQUEST = 1;
+    static int LOGIN_REQUEST = 0;
+    static int TARGET_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
