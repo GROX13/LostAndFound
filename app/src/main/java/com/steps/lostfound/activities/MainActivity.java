@@ -48,8 +48,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_home:
                         contentFrame.removeAllViews();
                         // TODO: Implement!
-                        Intent i = new Intent(MainActivity.this, MapActivity.class);
-                        startActivityForResult(i, 1);
+                        Intent i = new Intent(MainActivity.this, MapsActivity.class);
+                        // startActivityForResult(i, 1);
+                        startActivity(i);
                         return true;
                     case R.id.action_matched_items:
                         setListViewUp((ListView)
