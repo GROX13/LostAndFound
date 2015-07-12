@@ -34,5 +34,25 @@
     <string name="finish_registration">Finish Registration</string>
     <string name="title_activity_map">Map Activity</string>
 
+    <string name="new_found_item">I found item</string>
+    <string name="new_lost_item">I lost item</string>
+    <string name="title_activity_new_lost_item">When,Where,What found</string>
+    <string name="title_activity_new_found_items">When,Where,What lost</string>
+    <string name="date">Date</string>
+    <string name="lost_date">Date</string>
+    <string name="pick_place">Pick Place</string>
+    <string name="when">When</string>
+    <string name="where">Where</string>
+    <string name="what">What</string>
+    <string name="description">Description</string>
+
+    <string-array name="category_array">
+        <item>Animals/Pets</item>
+        <item>Bags, Baggage, Luggage</item>
+        <item>Clothing/jewelery</item>
+        <item>Electronics</item>
+        <item>Jewelry</item>
+        <item>Other</item>
+    </string-array>
 
 </resources>

@@ -3,7 +3,6 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/AppTheme.NavigationDrawer"
     android:fitsSystemWindows="true">
 
     <FrameLayout
@@ -15,19 +14,63 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:menu_animationDelayPerItem="50"
+            app:menu_backgroundColor="@android:color/transparent"
+            app:menu_buttonSpacing="0dp"
+            app:menu_colorNormal="@color/ThemePrimary"
+            app:menu_colorPressed="@color/ThemeAccent"
+            app:menu_colorRipple="@color/ThemeAccent"
+            app:menu_fab_size="normal"
+            app:menu_icon="@drawable/ic_add_white_24dp"
+            app:menu_labels_colorNormal="@color/ThemePrimary"
+            app:menu_labels_colorPressed="@color/ThemeAccent"
+            app:menu_labels_colorRipple="@color/ThemeAccent">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_item_lost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_new_lost_item"
+                app:fab_colorNormal="@color/ThemePrimaryDark"
+                app:fab_colorPressed="@color/ThemePrimary"
+                app:fab_colorRipple="@color/ThemePrimary"
+                app:fab_label="@string/new_lost_item"
+                app:fab_size="mini" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_item_found"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_new_found_item"
+                app:fab_colorNormal="@color/ThemePrimaryDark"
+                app:fab_colorPressed="@color/ThemePrimary"
+                app:fab_colorRipple="@color/ThemePrimary"
+                app:fab_label="@string/new_found_item"
+                app:fab_size="mini" />
+
+        </com.github.clans.fab.FloatingActionMenu>
     </FrameLayout>
 
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<android.support.design.widget.CoordinatorLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
-        <LinearLayout
-            android:id="@+id/display_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" />
+    <!--<LinearLayout-->
+    <!--android:id="@+id/display_content"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical" />-->
 
-    </android.support.design.widget.CoordinatorLayout>
+    <!--</android.support.design.widget.CoordinatorLayout>-->
 
     <!--<android.support.design.widget.CoordinatorLayout-->
     <!--android:layout_width="match_parent"-->
@@ -52,13 +95,6 @@
 
     <!--</LinearLayout>-->
 
-    <!--<android.support.design.widget.FloatingActionButton-->
-    <!--android:id="@+id/fab"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_gravity="end|bottom"-->
-    <!--android:layout_margin="30dp"-->
-    <!--app:borderWidth="0dp" />-->
 
     <!--</android.support.design.widget.CoordinatorLayout>-->
 
@@ -68,6 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/navigation_header"
         app:menu="@menu/menu_navigation" />
 
