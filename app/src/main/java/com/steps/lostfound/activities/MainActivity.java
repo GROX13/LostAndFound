@@ -1,5 +1,6 @@
 package com.steps.lostfound.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_home:
                         contentFrame.removeAllViews();
                         // TODO: Implement!
+                        Intent i = new Intent(MainActivity.this, MapActivity.class);
+                        startActivityForResult(i, 1);
                         return true;
                     case R.id.action_matched_items:
                         setListViewUp((ListView)
