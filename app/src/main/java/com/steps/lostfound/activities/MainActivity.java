@@ -46,45 +46,45 @@ public class MainActivity extends AppCompatActivity {
 
         newLostItem.setOnClickListener(new View.OnClickListener() {
             @Override
-<<<<<<< HEAD
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.action_home:
-                        contentFrame.removeAllViews();
-                        // TODO: Implement!
-                        Intent i = new Intent(MainActivity.this, MapActivity.class);
-                        startActivityForResult(i, 1);
-                        return true;
-                    case R.id.action_matched_items:
-                        setListViewUp((ListView)
-                                getLayoutInflater().inflate(R.layout.list_matched_items, null),
-                                contentFrame, menuItem.getItemId());
-                        return true;
-                    case R.id.action_lost_items:
-                        setListViewUp((ListView)
-                                getLayoutInflater().inflate(R.layout.list_lost_items, null),
-                                contentFrame, menuItem.getItemId());
-                        return true;
-                    case R.id.action_found_items:
-                        setListViewUp((ListView)
-                                getLayoutInflater().inflate(R.layout.list_found_items, null),
-                                contentFrame, menuItem.getItemId());
-                        return true;
-                    case R.id.history:
-                        setListViewUp((ListView)
-                                getLayoutInflater().inflate(R.layout.list_resolved_items, null),
-                                contentFrame, menuItem.getItemId());
-                        return true;
-                    case R.id.action_settings:
-                        // TODO: Implement!
-                        return true;
-                }
-                return false;
-=======
+//<<<<<<< HEAD
+//            public boolean onNavigationItemSelected(MenuItem menuItem) {
+//                switch (menuItem.getItemId()) {
+//                    case R.id.action_home:
+//                        contentFrame.removeAllViews();
+//                        // TODO: Implement!
+//                        Intent i = new Intent(MainActivity.this, MapActivity.class);
+//                        startActivityForResult(i, 1);
+//                        return true;
+//                    case R.id.action_matched_items:
+//                        setListViewUp((ListView)
+//                                getLayoutInflater().inflate(R.layout.list_matched_items, null),
+//                                contentFrame, menuItem.getItemId());
+//                        return true;
+//                    case R.id.action_lost_items:
+//                        setListViewUp((ListView)
+//                                getLayoutInflater().inflate(R.layout.list_lost_items, null),
+//                                contentFrame, menuItem.getItemId());
+//                        return true;
+//                    case R.id.action_found_items:
+//                        setListViewUp((ListView)
+//                                getLayoutInflater().inflate(R.layout.list_found_items, null),
+//                                contentFrame, menuItem.getItemId());
+//                        return true;
+//                    case R.id.history:
+//                        setListViewUp((ListView)
+//                                getLayoutInflater().inflate(R.layout.list_resolved_items, null),
+//                                contentFrame, menuItem.getItemId());
+//                        return true;
+//                    case R.id.action_settings:
+//                        // TODO: Implement!
+//                        return true;
+//                }
+//                return false;
+//=======
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,NewLostItemActivity.class);
                 startActivity(i);
->>>>>>> origin/master
+//>>>>>>> origin/master
             }
         });
         newFoundItem.setOnClickListener(new View.OnClickListener() {
