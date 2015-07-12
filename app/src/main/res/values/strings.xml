@@ -32,6 +32,7 @@
     <string name="sign_up">Sign Up</string>
     <string name="title_activity_finish_registration">Finish your registration</string>
     <string name="finish_registration">Finish Registration</string>
+    <string name="title_activity_map">Map Activity</string>
 
 
 </resources>
