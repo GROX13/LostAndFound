@@ -13,6 +13,6 @@ public class PushActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-        
+
     }
 }
