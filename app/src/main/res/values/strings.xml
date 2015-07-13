@@ -45,6 +45,8 @@
     <string name="where">Where</string>
     <string name="what">What</string>
     <string name="description">Description</string>
+    <string name="radius">Radius</string>
+    <string name="item">Item</string>
 
     <string-array name="category_array">
         <item>Animals/Pets</item>

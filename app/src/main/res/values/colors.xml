@@ -6,4 +6,8 @@
     <color name="nav_transparent">#5c000000</color>
     <color name="statusbar_transparent">#1d000000</color>
     <color name="white">#ffffffff</color>
+    <color name="radius_text_background">#3f000000</color>
+    <color name="circle_stroke_color">#FF6F00</color>
+    <color name="circle_color">#6affab00</color>
+
 </resources>

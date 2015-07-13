@@ -22,7 +22,7 @@ public class NewFoundItemsActivity extends AppCompatActivity {
         if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.abc_ic_clear_mtrl_alpha);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
         }
         final EditText dateLost = (EditText) findViewById(R.id.date);
         dateLost.setOnClickListener(new View.OnClickListener() {
