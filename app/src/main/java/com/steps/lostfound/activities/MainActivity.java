@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.parse.Parse;
@@ -46,45 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
         newLostItem.setOnClickListener(new View.OnClickListener() {
             @Override
-//<<<<<<< HEAD
-//            public boolean onNavigationItemSelected(MenuItem menuItem) {
-//                switch (menuItem.getItemId()) {
-//                    case R.id.action_home:
-//                        contentFrame.removeAllViews();
-//                        // TODO: Implement!
-//                        Intent i = new Intent(MainActivity.this, MapActivity.class);
-//                        startActivityForResult(i, 1);
-//                        return true;
-//                    case R.id.action_matched_items:
-//                        setListViewUp((ListView)
-//                                getLayoutInflater().inflate(R.layout.list_matched_items, null),
-//                                contentFrame, menuItem.getItemId());
-//                        return true;
-//                    case R.id.action_lost_items:
-//                        setListViewUp((ListView)
-//                                getLayoutInflater().inflate(R.layout.list_lost_items, null),
-//                                contentFrame, menuItem.getItemId());
-//                        return true;
-//                    case R.id.action_found_items:
-//                        setListViewUp((ListView)
-//                                getLayoutInflater().inflate(R.layout.list_found_items, null),
-//                                contentFrame, menuItem.getItemId());
-//                        return true;
-//                    case R.id.history:
-//                        setListViewUp((ListView)
-//                                getLayoutInflater().inflate(R.layout.list_resolved_items, null),
-//                                contentFrame, menuItem.getItemId());
-//                        return true;
-//                    case R.id.action_settings:
-//                        // TODO: Implement!
-//                        return true;
-//                }
-//                return false;
-//=======
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,NewLostItemActivity.class);
                 startActivity(i);
-//>>>>>>> origin/master
             }
         });
         newFoundItem.setOnClickListener(new View.OnClickListener() {
@@ -96,43 +61,23 @@ public class MainActivity extends AppCompatActivity {
         });
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
-//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(MenuItem menuItem) {
-//                switch (menuItem.getItemId()) {
-//                    case R.id.action_home:
-//                        contentFrame.removeAllViews();
-//                        // TODO: Implement!
-//                        Intent i = new Intent(MainActivity.this, MapActivity.class);
-//                        startActivityForResult(i, 1);
-//                        return true;
-//                    case R.id.action_matched_items:
-//                        setListViewUp((ListView)
-//                                getLayoutInflater().inflate(R.layout.list_matched_items, null),
-//                                contentFrame, menuItem.getItemId());
-//                        return true;
-//                    case R.id.action_lost_items:
-//                        setListViewUp((ListView)
-//                                getLayoutInflater().inflate(R.layout.list_lost_items, null),
-//                                contentFrame, menuItem.getItemId());
-//                        return true;
-//                    case R.id.action_found_items:
-//                        setListViewUp((ListView)
-//                                getLayoutInflater().inflate(R.layout.list_found_items, null),
-//                                contentFrame, menuItem.getItemId());
-//                        return true;
-//                    case R.id.history:
-//                        setListViewUp((ListView)
-//                                getLayoutInflater().inflate(R.layout.list_resolved_items, null),
-//                                contentFrame, menuItem.getItemId());
-//                        return true;
-//                    case R.id.action_settings:
-//                        // TODO: Implement!
-//                        return true;
-//                }
-//                return false;
-//            }
-//        });
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.action_home:
+                        Intent i = new Intent(MainActivity.this, MapActivity.class);
+                        startActivityForResult(i, 1);
+                    case R.id.action_matched_items:
+                    case R.id.action_lost_items:
+                    case R.id.action_found_items:
+                    case R.id.history:
+                    case R.id.action_settings:
+                        Toast.makeText(MainActivity.this,"Not Yet implemented",Toast.LENGTH_SHORT).show();
+                }
+                return false;
+            }
+        });
 
         ActionBarDrawerToggle actionBarDrawerToggle =
                 new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
