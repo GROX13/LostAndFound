@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.5.0"
+  },
+  "applications": {
+    "Lost \u0026 Found": {
+      "applicationId": "TtYZcp6avRRiewOd3VkYUOAKsyByyzBOM57Eze5S",
+      "masterKey": "C3woV3W4hfEQ4bn0a87cJVzyudOWknmDFZFC3OnH"
+    },
+    "_default": {
+      "link": "Lost \u0026 Found"
+    }
+  }
+}
