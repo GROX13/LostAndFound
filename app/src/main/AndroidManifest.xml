@@ -30,8 +30,8 @@
       to match your app's package name + ".permission.C2D_MESSAGE".
     -->
     <permission android:protectionLevel="signature"
-        android:name="com.steps.lostfound.pushnotifications.permission.C2D_MESSAGE" />
-    <uses-permission android:name="com.steps.lostfound.pushnotifications.permission.C2D_MESSAGE" />
+        android:name="com.steps.lostfound.activities.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.steps.lostfound.activities.permission.C2D_MESSAGE" />
 
     <application
         android:name=".application.App"
@@ -133,7 +133,7 @@
                   IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name.
                   HERE WAS <category android:name="com.parse.tutorials.pushnotifications" />
                 -->
-                <category android:name="com.steps.lostfound.pushnotifications" />
+                <category android:name="com.steps.lostfound.activities" />
             </intent-filter>
         </receiver>
 
