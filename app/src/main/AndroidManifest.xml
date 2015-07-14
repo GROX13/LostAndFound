@@ -29,8 +29,9 @@
       IMPORTANT: Change "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the lines below
       to match your app's package name + ".permission.C2D_MESSAGE".
     -->
-    <permission android:protectionLevel="signature"
-        android:name="com.steps.lostfound.activities.permission.C2D_MESSAGE" />
+    <permission
+        android:name="com.steps.lostfound.activities.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
     <uses-permission android:name="com.steps.lostfound.activities.permission.C2D_MESSAGE" />
 
     <application
@@ -51,6 +52,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
+        <meta-data
+            android:name="com.parse.push.notification_icon"
+            android:resource="@mipmap/ic_launcher" />
 
         <activity
             android:name=".activities.DispatcherActivity"
@@ -131,11 +136,19 @@
 
                 <!--
                   IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name.
-                  HERE WAS <category android:name="com.parse.tutorials.pushnotifications" />
+                  HERE WAS: <category android:name="com.parse.tutorials.pushnotifications" />
                 -->
                 <category android:name="com.steps.lostfound.activities" />
             </intent-filter>
         </receiver>
+
+        <!-- My custom receiver -->
+        <receiver android:name=".broadcastreceiver.ParseReceiver">
+            <intent-filter>
+                <action android:name="com.steps.lostfound.MATCH_PUSH" />
+            </intent-filter>
+        </receiver>
+        <!-- END my custom receiver -->
 
         <receiver
             android:name="com.parse.ParsePushBroadcastReceiver"

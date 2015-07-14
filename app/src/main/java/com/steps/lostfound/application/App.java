@@ -1,12 +1,18 @@
 package com.steps.lostfound.application;
 
 import android.app.Application;
+import android.util.Log;
 import android.widget.BaseAdapter;
 
 import com.facebook.FacebookSdk;
 import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseFacebookUtils;
+import com.parse.ParseInstallation;
+import com.parse.ParsePush;
 import com.parse.PushService;
-import com.steps.lostfound.activities.PushActivity;
+import com.parse.SaveCallback;
+import com.steps.lostfound.activities.MainActivity;
 import com.steps.lostfound.model.Observable;
 
 import java.util.ArrayList;
@@ -40,19 +46,27 @@ public class App extends Application implements Observable {
         // Initialize the SDK before executing any other operations,
         // especially, if you're using Facebook UI elements.
         FacebookSdk.sdkInitialize(getApplicationContext());
-//        ParseFacebookUtils.initialize(getApplicationContext());
-//        ParsePush.subscribeInBackground("", new SaveCallback() {
-//            @Override
-//            public void done(ParseException e) {
-//                if (e == null) {
-//                    Log.d("com.parse.push", "successfully subscribed to the broadcast channel.");
-//                } else {
-//                    Log.e("com.parse.push", "failed to subscribe for push", e);
-//                }
-//            }
-//        });
-//        PushService.setDefaultPushCallback(this, PushActivity.class);
-        PushService.setDefaultPushCallback(this, PushActivity.class);
+        ParseFacebookUtils.initialize(getApplicationContext());
+        ParsePush.subscribeInBackground("", new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    Log.d("com.parse.push", "successfully subscribed to the broadcast channel.");
+                } else {
+                    Log.e("com.parse.push", "failed to subscribe for push", e);
+                }
+            }
+        });
+        PushService.setDefaultPushCallback(this, MainActivity.class);
+        ParseInstallation.getCurrentInstallation().saveInBackground(
+                new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        Log.e(App.class.getSimpleName(),
+                                "Installation object saved " + ((e != null) ? "failed" : "successfully"));
+                    }
+                }
+        );
     }
 
     @Override
