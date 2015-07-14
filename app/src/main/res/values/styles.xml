@@ -23,6 +23,8 @@
 
     </style>
 
+    <style name="NavigationDrawerTheme" parent="AppTheme"/>
+
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorPrimary">@color/ThemePrimary</item>
         <item name="colorPrimaryDark">@color/ThemePrimaryDark</item>

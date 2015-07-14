@@ -15,8 +15,14 @@ import java.util.Date;
  * Dialog fragment
  * Created by ioane on 7/12/15.
  */
-public class DatePickerFragment extends DialogFragment
-        implements DatePickerDialog.OnDateSetListener {
+public class DatePickerFragment extends DialogFragment{
+
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
+
+
+    public void setOnDateSetListener(DatePickerDialog.OnDateSetListener listener) {
+        mDateSetListener = listener;
+    }
 
     public DatePickerFragment() {
     }
@@ -36,15 +42,6 @@ public class DatePickerFragment extends DialogFragment
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 
-        return new DatePickerDialog(getActivity(), this, year, month, day);
-    }
-
-    @Override
-    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-        mDateView.setText(String.format("%d/%d/%d", year, monthOfYear, dayOfMonth));
-        Calendar cal = Calendar.getInstance();
-        cal.set(year, monthOfYear, dayOfMonth);
-        Date date = cal.getTime();
-        mDateView.setTag(date);
+        return new DatePickerDialog(getActivity(), mDateSetListener, year, month, day);
     }
 }

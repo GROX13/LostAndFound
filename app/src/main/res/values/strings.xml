@@ -47,6 +47,9 @@
     <string name="description">Description</string>
     <string name="radius">Radius</string>
     <string name="item">Item</string>
+    <string name="push">Push</string>
+    <string name="pick_date">Pick date</string>
+    <string name="select_category">Select category</string>
 
     <string-array name="category_array">
         <item>Animals/Pets</item>
@@ -56,5 +59,8 @@
         <item>Jewelry</item>
         <item>Other</item>
     </string-array>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
