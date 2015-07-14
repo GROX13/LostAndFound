@@ -5,101 +5,73 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <FrameLayout
-        android:id="@+id/content_frame"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <include layout="@layout/toolbar" />
 
-        <fragment
-            android:id="@+id/fragment_container"
+        <FrameLayout
+            android:id="@+id/content_frame"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
 
-        <com.github.clans.fab.FloatingActionMenu
-            android:id="@+id/menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            app:menu_animationDelayPerItem="50"
-            app:menu_backgroundColor="@android:color/transparent"
-            app:menu_buttonSpacing="0dp"
-            app:menu_colorNormal="@color/ThemePrimary"
-            app:menu_colorPressed="@color/ThemeAccent"
-            app:menu_colorRipple="@color/ThemeAccent"
-            app:menu_fab_size="normal"
-            app:menu_icon="@drawable/ic_add_white_24dp"
-            app:menu_labels_colorNormal="@color/ThemePrimary"
-            app:menu_labels_colorPressed="@color/ThemeAccent"
-            app:menu_labels_colorRipple="@color/ThemeAccent">
+            <FrameLayout
 
-            <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/fab_item_lost"
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </FrameLayout>
+
+
+            <com.github.clans.fab.FloatingActionMenu
+                android:id="@+id/menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_new_lost_item"
-                app:fab_colorNormal="@color/ThemePrimaryDark"
-                app:fab_colorPressed="@color/ThemePrimary"
-                app:fab_colorRipple="@color/ThemePrimary"
-                app:fab_label="@string/new_lost_item"
-                app:fab_size="mini" />
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:menu_animationDelayPerItem="50"
+                app:menu_backgroundColor="@android:color/transparent"
+                app:menu_buttonSpacing="0dp"
+                app:menu_colorNormal="@color/ThemePrimary"
+                app:menu_colorPressed="@color/ThemeAccent"
+                app:menu_colorRipple="@color/ThemeAccent"
+                app:menu_fab_size="normal"
+                app:menu_icon="@drawable/ic_add_white_24dp"
+                app:menu_labels_colorNormal="@color/ThemePrimary"
+                app:menu_labels_colorPressed="@color/ThemeAccent"
+                app:menu_labels_colorRipple="@color/ThemeAccent">
 
-            <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/fab_item_found"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_new_found_item"
-                app:fab_colorNormal="@color/ThemePrimaryDark"
-                app:fab_colorPressed="@color/ThemePrimary"
-                app:fab_colorRipple="@color/ThemePrimary"
-                app:fab_label="@string/new_found_item"
-                app:fab_size="mini" />
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_item_lost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_new_lost_item"
+                    app:fab_colorNormal="@color/ThemePrimaryDark"
+                    app:fab_colorPressed="@color/ThemePrimary"
+                    app:fab_colorRipple="@color/ThemePrimary"
+                    app:fab_label="@string/new_lost_item"
+                    app:fab_size="mini" />
 
-        </com.github.clans.fab.FloatingActionMenu>
-    </FrameLayout>
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_item_found"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_new_found_item"
+                    app:fab_colorNormal="@color/ThemePrimaryDark"
+                    app:fab_colorPressed="@color/ThemePrimary"
+                    app:fab_colorRipple="@color/ThemePrimary"
+                    app:fab_label="@string/new_found_item"
+                    app:fab_size="mini" />
 
-    <!--<android.support.design.widget.CoordinatorLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent">-->
+            </com.github.clans.fab.FloatingActionMenu>
+        </FrameLayout>
 
-    <!--<LinearLayout-->
-    <!--android:id="@+id/display_content"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:orientation="vertical" />-->
-
-    <!--</android.support.design.widget.CoordinatorLayout>-->
-
-    <!--<android.support.design.widget.CoordinatorLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent">-->
-
-    <!--<LinearLayout-->
-    <!--android:id="@+id/linear_layout"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:orientation="vertical">-->
-
-    <!--<android.support.v7.widget.Toolbar-->
-    <!--android:id="@+id/toolbar"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content" />-->
-
-    <!--&lt;!&ndash;<fragment&ndash;&gt;-->
-    <!--&lt;!&ndash;android:id="@+id/fragment"&ndash;&gt;-->
-    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-    <!--&lt;!&ndash;tools:layout="@layout/fragment_home" />&ndash;&gt;-->
-
-    <!--</LinearLayout>-->
-
-
-    <!--</android.support.design.widget.CoordinatorLayout>-->
-
+    </LinearLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"

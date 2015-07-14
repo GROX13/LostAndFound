@@ -61,13 +61,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        final ActionBarDrawerToggle actionBarDrawerToggle =
+                new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
+                        R.string.openDrawer, R.string.closeDrawer) {
+                    @Override
+                    public void onDrawerClosed(View drawerView) {
+                        super.onDrawerClosed(drawerView);
+                    }
+
+                    @Override
+                    public void onDrawerOpened(View drawerView) {
+                        super.onDrawerOpened(drawerView);
+                    }
+                };
+        final NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-
+                mDrawerLayout.closeDrawers();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction ft;
+                if(R.id.action_settings != menuItem.getItemId())
+                    menuItem.setChecked(true);
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
                         toolbar.setTitle(menuItem.getTitle());
@@ -106,19 +121,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ActionBarDrawerToggle actionBarDrawerToggle =
-                new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
-                        R.string.openDrawer, R.string.closeDrawer) {
-                    @Override
-                    public void onDrawerClosed(View drawerView) {
-                        super.onDrawerClosed(drawerView);
-                    }
-
-                    @Override
-                    public void onDrawerOpened(View drawerView) {
-                        super.onDrawerOpened(drawerView);
-                    }
-                };
 
         mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();

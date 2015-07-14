@@ -9,5 +9,10 @@
     <color name="radius_text_background">#3f000000</color>
     <color name="circle_stroke_color">#FF6F00</color>
     <color name="circle_color">#6affab00</color>
+    <color name="nav_header_name">#ffffffff</color>
+    <color name="nav_header_email">#ffececec</color>
+
+
+
 
 </resources>
