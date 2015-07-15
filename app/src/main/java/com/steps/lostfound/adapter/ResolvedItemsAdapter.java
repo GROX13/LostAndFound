@@ -1,49 +1,48 @@
 package com.steps.lostfound.adapter;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.parse.ParseQueryAdapter;
 import com.steps.lostfound.R;
+import com.steps.lostfound.model.Item;
 
 /**
  * TODO: Implement!
  * Created by Giorgi on 7/10/2015.
  */
-public class ResolvedItemsAdapter extends BaseAdapter {
+public class ResolvedItemsAdapter extends ParseQueryAdapter<Item> {
 
-    private final Activity activity;
+    private LayoutInflater inflater;
 
-    public ResolvedItemsAdapter(Activity activity) {
-        this.activity = activity;
+    public ResolvedItemsAdapter(Context context, ParseQueryAdapter.QueryFactory<Item> queryFactory) {
+        super(context, queryFactory);
+        inflater = LayoutInflater.from(context);
     }
 
     @Override
-    public int getCount() {
-        return 13;
+    public View getItemView(Item item, View view, ViewGroup parent) {
+        ViewHolder holder;
+        if (view == null) {
+            view = inflater.inflate(R.layout.element_matched_item, parent, false);
+            holder = new ViewHolder();
+            holder.name = (TextView) view
+                    .findViewById(R.id.matched_element_label);
+            view.setTag(holder);
+        } else {
+            holder = (ViewHolder) view.getTag();
+        }
+        TextView name = holder.name;
+        name.setText(item.getDescription());
+
+        return view;
     }
 
-    @Override
-    public Object getItem(int position) {
-        return "Resolved Item Placeholder!";
+    private static class ViewHolder {
+        TextView name;
     }
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    @SuppressLint("ViewHolder")
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = activity.getLayoutInflater();
-        View row = inflater.inflate(R.layout.element_resolved_item, parent, false);
-        TextView name = (TextView) row.findViewById(R.id.resolved_element_label);
-        name.setText((String) getItem(position));
-        return row;
-    }
 }
