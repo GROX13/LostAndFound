@@ -5,6 +5,8 @@ import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.util.Date;
+
 /**
  * Model for database item.
  * <p/>
@@ -34,7 +36,15 @@ public class Item extends ParseObject {
         return getParseGeoPoint("location");
     }
 
-    public void getLocation(ParseGeoPoint location) {
+    public void setDate(Date date) {
+        put("date", date);
+    }
+
+    public Date getDate() {
+        return getDate("date");
+    }
+
+    public void setGeoLocation(ParseGeoPoint location) {
         put("location", location);
     }
 

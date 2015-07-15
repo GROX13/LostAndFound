@@ -15,7 +15,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.parse.ParseGeoPoint;
 import com.steps.lostfound.R;
+import com.steps.lostfound.model.Item;
 import com.steps.lostfound.utils.DatePickerFragment;
 
 import java.util.Calendar;
@@ -81,10 +83,20 @@ public class NewLostItemActivity extends AppCompatActivity implements DatePicker
             @Override
             public void onClick(View v) {
                 if (validateFields()) {
-                    Toast.makeText(getBaseContext(), "Now we send", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Now we save", Toast.LENGTH_SHORT).show();
+                    Item item = new Item();
+                    item.setCategory((String)mCategorySpinner.getSelectedItem());
+                    item.setLost(true);
+                    item.setResolved(false);
+                    item.setRadius(mRadius);
+                    item.setGeoLocation(new ParseGeoPoint(mLatitude,mLongitude));
+                    item.setDate(mDate);
+                    item.saveEventually();
                 }
             }
         });
+
+
 
     }
 
