@@ -11,11 +11,9 @@ import com.parse.ParseFacebookUtils;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParsePush;
-import com.parse.ParseUser;
 import com.parse.PushService;
 import com.parse.SaveCallback;
 import com.steps.lostfound.activities.MainActivity;
-import com.steps.lostfound.model.Category;
 import com.steps.lostfound.model.Item;
 import com.steps.lostfound.model.User;
 
@@ -35,7 +33,6 @@ public class App extends Application{
         super.onCreate();
 
         ParseObject.registerSubclass(User.class);
-        ParseObject.registerSubclass(Category.class);
         ParseObject.registerSubclass(Item.class);
 
         // Enable the local data store
@@ -47,7 +44,6 @@ public class App extends Application{
 
         // Set up our app to use Anonymous Users, so that people
         // can save todos locally without having to log in.
-        ParseUser.enableAutomaticUser();
         ParseACL defaultACL = new ParseACL();
         ParseACL.setDefaultACL(defaultACL, true);
 

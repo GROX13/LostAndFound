@@ -22,12 +22,12 @@ public class Item extends ParseObject {
         put("userId", userId);
     }
 
-    public String getCategoryId() {
-        return getString("categoryId");
+    public String getCategory() {
+        return getString("category");
     }
 
-    public void setCategoryId(String categoryId) {
-        put("categoryId", categoryId);
+    public void setCategory(String category) {
+        put("category", category);
     }
 
     public ParseGeoPoint getLocation() {
