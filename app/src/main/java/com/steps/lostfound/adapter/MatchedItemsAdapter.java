@@ -10,11 +10,10 @@ import com.parse.ParseQueryAdapter;
 import com.steps.lostfound.R;
 import com.steps.lostfound.model.Item;
 
-/**
+/*
  * Created by Giorgi on 7/10/2015.
  */
 public class MatchedItemsAdapter extends ParseQueryAdapter<Item> {
-
 
     private LayoutInflater inflater;
 
